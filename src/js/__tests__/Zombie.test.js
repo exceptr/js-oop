@@ -1,7 +1,7 @@
 import Zombie from '../Zombie';
 
-test('Zombie', () => {
-  const result = {
+test('Создание экземпляра класса Zombie', () => {
+  const expectedResult = {
     health: 100,
     level: 1,
     name: 'test',
@@ -10,5 +10,5 @@ test('Zombie', () => {
     defence: 10,
   };
   const answer = new Zombie('test');
-  expect(result).toEqual(answer);
+  expect(answer).toEqual(expectedResult);
 });

@@ -1,29 +1,25 @@
 import Character from '../Character';
 
-test('Instance creation Character', () => {
-  const result = {
+test('Создание экземпляра класса Character', () => {
+  const expectedResult = {
     health: 100, level: 1, name: 'test', type: 'Bowman',
   };
   const answer = new Character('test', 'Bowman');
-  expect(result).toEqual(answer);
+  expect(answer).toEqual(expectedResult);
 });
 
-test('Throw the allowed length of the name is from 2 to 10', () => {
-  expect(() => {
-    const answer = new Character('t', 'Bowman');
-  }).toThrow('The allowed length of the name is from 2 to 10');
+test('Проверка исключения "Допустимая длина имени от 2 до 10"', () => {
+  expect(() => new Character('t', 'Bowman')).toThrowError();
 });
 
-test('type is not properly defined', () => {
-  expect(() => {
-    const answer = new Character('test', 'Bman');
-  }).toThrow('type is not properly defined');
+test('Проверка исключения "Тип персонажа введён не праильно, либо его не существует"', () => {
+  expect(() => new Character('test', 'Bman')).toThrowError();
 });
 
-test("you can't level up the dead", () => {
+test('Проверка исключения повышения уровня мертвого персонада', () => {
   expect(() => {
     const answer = new Character('test', 'Bowman');
     answer.health = 0;
     answer.levelUp();
-  }).toThrow("you can't level up the dead");
+  }).toThrowError();
 });

@@ -10,7 +10,7 @@ export default class Character {
     if (name.length >= 2 && name.length <= 10) {
       this.name = name;
     } else {
-      throw new Error('The allowed length of the name is from 2 to 10');
+      throw new Error('Допустимая длина имени от 2 до 10');
     }
   }
 
@@ -18,17 +18,17 @@ export default class Character {
     if (Character.types.includes(type)) {
       this.type = type;
     } else {
-      throw new Error('type is not properly defined');
+      throw new Error('Тип персонажа введён не праильно, либо его не существует');
     }
   }
 
   levelUp() {
     if (this.health === 0) {
-      throw new Error("you can't level up the dead");
+      throw new Error('Невозможно повысить уровень мёртвого персонажа');
     }
-    this.level++;
-    this.attack = (this.attack * 20 / 100) + this.attack;
-    this.defence = (this.defence * 20 / 100) + this.defence;
+    this.level += 1;
+    this.attack *= 1.2;
+    this.defence *= 1.2;
     this.health = 100;
   }
 
@@ -36,7 +36,7 @@ export default class Character {
     if (this.health > 0) {
       this.health -= points * (1 - this.defence / 100);
     } else {
-      throw new Error('You dead');
+      throw new Error('Вы мертвы');
     }
   }
 }

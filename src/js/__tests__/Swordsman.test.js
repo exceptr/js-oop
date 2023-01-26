@@ -1,7 +1,7 @@
 import Swordsman from '../Swordsman';
 
-test('Swordsman', () => {
-  const result = {
+test('Создание экземпляра класса Swordsman', () => {
+  const expectedResult = {
     health: 100,
     level: 1,
     name: 'test',
@@ -10,5 +10,5 @@ test('Swordsman', () => {
     defence: 10,
   };
   const answer = new Swordsman('test');
-  expect(result).toEqual(answer);
+  expect(answer).toEqual(expectedResult);
 });

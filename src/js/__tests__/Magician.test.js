@@ -1,7 +1,7 @@
 import Magician from '../Magician';
 
-test('Magician', () => {
-  const result = {
+test('Создание экземпляра класса Magician', () => {
+  const expectedResult = {
     health: 100,
     level: 1,
     name: 'test',
@@ -10,5 +10,5 @@ test('Magician', () => {
     defence: 40,
   };
   const answer = new Magician('test');
-  expect(result).toEqual(answer);
+  expect(answer).toEqual(expectedResult);
 });

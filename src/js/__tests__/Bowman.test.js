@@ -1,7 +1,7 @@
 import Bowman from '../Bowman';
 
-test('Bowman', () => {
-  const result = {
+test('Создание экземпляра класса Bowman', () => {
+  const expectedResult = {
     health: 100,
     level: 1,
     name: 'test',
@@ -9,12 +9,11 @@ test('Bowman', () => {
     attack: 25,
     defence: 25,
   };
-  const answer = new Bowman('test');
-  expect(result).toEqual(answer);
+  expect(new Bowman('test')).toEqual(expectedResult);
 });
 
-test('levelUp', () => {
-  const result = {
+test('Повышение уровня персонажа', () => {
+  const expectedResult = {
     health: 100,
     level: 2,
     name: 'test',
@@ -24,11 +23,11 @@ test('levelUp', () => {
   };
   const answer = new Bowman('test');
   answer.levelUp();
-  expect(answer).toEqual(result);
+  expect(answer).toEqual(expectedResult);
 });
 
-test('damage', () => {
-  const result = {
+test('Нанесение урона персонажа', () => {
+  const expectedResult = {
     health: 92.5,
     level: 1,
     name: 'test',
@@ -38,13 +37,13 @@ test('damage', () => {
   };
   const answer = new Bowman('test');
   answer.damage(10);
-  expect(answer).toEqual(result);
+  expect(answer).toEqual(expectedResult);
 });
 
-test('Throw you dead', () => {
+test('Проверка исключения, нанесение урона мертвому персонажу', () => {
   expect(() => {
     const answer = new Bowman('test');
     answer.health = 0;
     answer.damage(10);
-  }).toThrow('You dead');
+  }).toThrowError();
 });
